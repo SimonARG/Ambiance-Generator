@@ -1,0 +1,10 @@
+Work on responsiveness (LEARN MEDIA QUERIES RETARD)
+Make side menu
+Implement volume fadder on timer (side menu)
+Implement presets (side menu)
+
+ISSUES:
+
+On audio switch, on-off gets FUCKED
+Master controls don't interact with player play/pause icons
+Master controls should control music
