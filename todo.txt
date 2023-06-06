@@ -1,5 +1,7 @@
-Work on responsiveness (LEARN MEDIA QUERIES RETARD)
+Add favicon
+Master controls should control music
 Make side menu
 Implement volume fadder on timer (side menu)
 Implement presets (side menu)
-Master controls should control music
+Work on responsiveness (LEARN MEDIA QUERIES RETARD)
+Rebrand
