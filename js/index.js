@@ -208,14 +208,17 @@ function onOff(audioId, btnId, displaySpanClass, onOffClass) {
 }
 
 function pausePlay(audioId, iconId) {
-    let audio = document.getElementById(audioId);
-    let icon = document.getElementById(iconId); 
+    const audio = document.getElementById(audioId);
+    const icon = document.getElementById(iconId);
+    const masterIcon = document.getElementById("master-icon");
 
     if (audio.getAttribute("src") != "") {
         if (audio.paused) {
             audio.play();
             $(icon).removeClass("fa-play");
+            $(masterIcon).removeClass("fa-play");
             $(icon).addClass("fa-pause");
+            $(masterIcon).addClass("fa-pause");
         } else {
             audio.pause();
             $(icon).removeClass("fa-pause");
@@ -225,11 +228,10 @@ function pausePlay(audioId, iconId) {
 }
 
 function masterPausePlay() {
+    const pnpIconsNode = document.getElementsByClassName("pnp-icon");
     const icon = document.getElementById("master-icon");
     const audioNode = document.querySelectorAll("audio");
     const audios = [];
-
-    console.log(singleIcon);
         
     for (let i = 0, len = audioNode.length; i < len; i++) {
         if (audioNode[i].getAttribute("src") != "") {
@@ -245,7 +247,9 @@ function masterPausePlay() {
         });
 
         $(icon).removeClass("fa-play");
+        $(pnpIconsNode).removeClass("fa-play");
         $(icon).addClass("fa-pause");
+        $(pnpIconsNode).addClass("fa-pause");
     } else if (audios.length != 0){
 
         audios.forEach(element => {
@@ -253,7 +257,9 @@ function masterPausePlay() {
         });
 
         $(icon).removeClass("fa-pause");
+        $(pnpIconsNode).removeClass("fa-pause");
         $(icon).addClass("fa-play");
+        $(pnpIconsNode).addClass("fa-play");
     }
 }
 
@@ -332,27 +338,46 @@ function toggleSwitcher(switcherClass, arrowClass) {
     }
 }
 
-function switchAudio(audioFile, audioElement, switcherElement, displaySpan, displayIcon, iconClass) {
-    let audio = document.getElementById(audioElement);
-    let switcher = document.getElementsByClassName(switcherElement);
-    let span = document.getElementsByClassName(displaySpan);
-    let icon = document.getElementById(displayIcon);
+function switchAudio(audioFile, audioElement, switcherElement, displaySpan, displayIcon, iconClass, btnIconId) {
+    const audio = document.getElementById(audioElement);
+    const switcher = document.getElementsByClassName(switcherElement);
+    const span = document.getElementsByClassName(displaySpan);
+    const icon = document.getElementById(displayIcon);
+    const pnpIcon = document.getElementById(btnIconId);
 
-    if (audio.paused) {
-        $(audio).attr("src", "audio/" + audioFile + ".opus");
-        $(".switcher-element").removeClass("switcher-active");
-        $(switcher).addClass("switcher-active");
-        $(span).text(audioFile);
-        $(icon).removeClass().addClass(iconClass);
-        audio.load();
+    if ($(pnpIcon).hasClass("btn-inactive")) {
+        if (audio.paused) {
+            $(".switcher-element").removeClass("switcher-active");
+            $(switcher).addClass("switcher-active");
+            $(span).text(audioFile);
+            $(icon).removeClass().addClass(iconClass);
+            audio.load();
+        } else {
+            audio.pause();
+            $(".switcher-element").removeClass("switcher-active");
+            $(switcher).addClass("switcher-active");
+            $(span).text(audioFile);
+            $(icon).removeClass().addClass(iconClass);
+            audio.load();
+            audio.oncanplaythrough = audio.play();
+        }
     } else {
-        audio.pause();
-        $(audio).attr("src", "audio/" + audioFile + ".opus");
-        $(".switcher-element").removeClass("switcher-active");
-        $(switcher).addClass("switcher-active");
-        $(span).text(audioFile);
-        $(icon).removeClass().addClass(iconClass);
-        audio.load();
-        audio.oncanplaythrough = audio.play();
-    }
+        if (audio.paused) {
+            $(audio).attr("src", "audio/" + audioFile + ".opus");
+            $(".switcher-element").removeClass("switcher-active");
+            $(switcher).addClass("switcher-active");
+            $(span).text(audioFile);
+            $(icon).removeClass().addClass(iconClass);
+            audio.load();
+        } else {
+            audio.pause();
+            $(audio).attr("src", "audio/" + audioFile + ".opus");
+            $(".switcher-element").removeClass("switcher-active");
+            $(switcher).addClass("switcher-active");
+            $(span).text(audioFile);
+            $(icon).removeClass().addClass(iconClass);
+            audio.load();
+            audio.oncanplaythrough = audio.play();
+        }
+    }   
 }

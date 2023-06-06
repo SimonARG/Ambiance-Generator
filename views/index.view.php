@@ -68,7 +68,8 @@
 														'<?php echo $value ?>',
 														'<?php echo 'displaySpan' . $i ?>',
 														'<?php echo 'displayIcon' . $i ?>',
-														'<?php echo $icons[$value] ?>'
+														'<?php echo $icons[$value] ?>',
+														'<?php echo 'btn-icon' . $i ?>'
 														)">
 														<?php echo $value ?>
 														<i class="<?php echo $icons[$value] ?>"></i>
@@ -106,7 +107,7 @@
 										type="button" 
 										class="int-btn <?php echo "pause-play" . $i ?>">
 										<i id="<?php echo "btn-icon" . $i ?>" 
-										class="fa-solid fa-play btn-inactive"></i>
+										class="pnp-icon fa-solid fa-play btn-inactive"></i>
 									</button> 
 								</div>
 								<div class="on-off-container">
