@@ -268,7 +268,7 @@ body {
 
 .master-container {
 
-    width: 70vw;
+    width: auto;
     height: auto;
     background-color: var(--bg-normal);
     display: none;
@@ -823,6 +823,18 @@ body {
     padding: .8rem;
     border: 1px solid white;
     overflow: hidden;
+    align-items: center;
+
+}
+
+.master-flex h3 {
+
+    font-size: 1.1rem;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    letter-spacing: -4px;
+    font-weight: bold;
+    user-select: none;
 
 }
 
@@ -834,7 +846,7 @@ body {
     cursor: pointer;
     min-width: 6rem;
     min-height: 6rem;
-    margin-right: 2rem;
+    margin: 0 2rem;
 
 }
 

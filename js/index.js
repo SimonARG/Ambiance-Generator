@@ -217,6 +217,15 @@ function onOff(audioId, btnId, displaySpanClass, onOffClass) {
 function pausePlay(audioId, iconId) {
     const audio = document.getElementById(audioId);
     const icon = document.getElementById(iconId);
+    const audioNode = document.querySelectorAll("audio");
+    const audios = [];
+
+    for (let i = 0, len = audioNode.length; i < len; i++) {
+        if (audioNode[i].getAttribute("src") != "") {
+            audios.push(audioNode[i]);
+            audios.sort();
+        }
+    }
 
     if (audio.getAttribute("src") != "") {
         if (audio.paused) {
@@ -229,13 +238,17 @@ function pausePlay(audioId, iconId) {
             audio.pause();
             $(icon).removeClass("fa-pause");
             $(icon).addClass("fa-play");
+            
+            if (audios.every(item => item.paused)) {
+                $(masterIcon).removeClass("fa-pause");
+                $(masterIcon).addClass("fa-play");
+            }
         }
     }
 }
 
 function masterPausePlay() {
     const pnpIconsNode = document.getElementsByClassName("pnp-icon");
-    const icon = document.getElementById("master-icon");
     const audioNode = document.querySelectorAll("audio");
     const audios = [];
         
@@ -252,9 +265,9 @@ function masterPausePlay() {
             element.play()
         });
 
-        $(icon).removeClass("fa-play");
+        $(masterIcon).removeClass("fa-play");
         $(pnpIconsNode).removeClass("fa-play");
-        $(icon).addClass("fa-pause");
+        $(masterIcon).addClass("fa-pause");
         $(pnpIconsNode).addClass("fa-pause");
 
         if (spotifyPlay == false && spotifyShow == true) {
@@ -269,9 +282,9 @@ function masterPausePlay() {
             element.pause()
         });
 
-        $(icon).removeClass("fa-pause");
+        $(masterIcon).removeClass("fa-pause");
         $(pnpIconsNode).removeClass("fa-pause");
-        $(icon).addClass("fa-play");
+        $(masterIcon).addClass("fa-play");
         $(pnpIconsNode).addClass("fa-play");
 
         if (spotifyPlay == true) {

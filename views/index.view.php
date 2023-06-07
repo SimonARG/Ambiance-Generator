@@ -20,9 +20,6 @@
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous"/>
 
-		<script type="text/javascript" src="js/jquery-3.6.3.js"></script>
-		<script type="text/javascript" src="js/index.js"></script>
-
 	</head>
 
 	<body>
@@ -37,6 +34,7 @@
 			<div class="master-holder">
 				<div class="master-container">
 					<div class="master-flex">
+						<h3>MASTER</h3>
 						<button 
 							type="button" 
 							class="master-pnp" 
@@ -172,8 +170,10 @@
 			</div>
 
 		</div>
-		
+
+		<script type="text/javascript" src="js/jquery-3.6.3.js"></script>
 		<script type="text/javascript" src="js/jquery-ui/jquery-ui.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
 
 	</body>
 
