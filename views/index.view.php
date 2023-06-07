@@ -12,6 +12,7 @@
 
 		<link rel="stylesheet" href="css/index.css">
 		<link rel="stylesheet" href="js/jquery-ui/jquery-ui.css">
+		<link rel="icon" type="image/x-icon" href="images/favicon.ico">
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +21,6 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous"/>
 
 		<script type="text/javascript" src="js/jquery-3.6.3.js"></script>
-		<script type="text/javascript" src="js/jquery-ui/jquery-ui.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
 
 	</head>
@@ -172,6 +172,8 @@
 			</div>
 
 		</div>
+		
+		<script type="text/javascript" src="js/jquery-ui/jquery-ui.js"></script>
 
 	</body>
 

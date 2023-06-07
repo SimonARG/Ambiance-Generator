@@ -168,12 +168,19 @@ $(document).ready(function(){
     
 });
 
+let spotifyPlay = false;
+let youtubePlay = false;
+let youtubeShow = false;
+let spotifyShow = false;
+
+const masterIcon = document.getElementById("master-icon");
+
 function onOff(audioId, btnId, displaySpanClass, onOffClass) {
-    let audio = document.getElementById(audioId);
-    let btn = document.getElementById(btnId);
-    let icon = document.getElementsByClassName(onOffClass);
-    let displaySpan = document.getElementsByClassName(displaySpanClass);
-    let file = $(displaySpan).text();
+    const audio = document.getElementById(audioId);
+    const btn = document.getElementById(btnId);
+    const icon = document.getElementsByClassName(onOffClass);
+    const displaySpan = document.getElementsByClassName(displaySpanClass);
+    const file = $(displaySpan).text();
     let playing = false;
     
     if ($(btn).hasClass("fa-pause")) {
@@ -210,7 +217,6 @@ function onOff(audioId, btnId, displaySpanClass, onOffClass) {
 function pausePlay(audioId, iconId) {
     const audio = document.getElementById(audioId);
     const icon = document.getElementById(iconId);
-    const masterIcon = document.getElementById("master-icon");
 
     if (audio.getAttribute("src") != "") {
         if (audio.paused) {
@@ -250,6 +256,13 @@ function masterPausePlay() {
         $(pnpIconsNode).removeClass("fa-play");
         $(icon).addClass("fa-pause");
         $(pnpIconsNode).addClass("fa-pause");
+
+        if (spotifyPlay == false && spotifyShow == true) {
+            playSpotify();
+        }
+        if (youtubePlay == false && youtubeShow == true) {
+            playYoutube();
+        }
     } else if (audios.length != 0){
 
         audios.forEach(element => {
@@ -260,6 +273,12 @@ function masterPausePlay() {
         $(pnpIconsNode).removeClass("fa-pause");
         $(icon).addClass("fa-play");
         $(pnpIconsNode).addClass("fa-play");
+
+        if (spotifyPlay == true) {
+            stopSpotify();
+        } else if (youtubePlay == true) {
+            stopYoutube();
+        }
     }
 }
 
@@ -271,34 +290,42 @@ function changeVolume(audioId, slider) {
 }
 
 function stopYoutube() {
-    if (youtubePlay = true) {
         const youtubeEmbedWindow = document.querySelector('iframe[src*="youtube.com/"]').contentWindow;
         youtubeEmbedWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
         youtubePlay = false;
-    }
+}
+
+function playYoutube() {
+        const youtubeEmbedWindow = document.querySelector('iframe[src*="youtube.com/"]').contentWindow;
+        youtubeEmbedWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+        youtubePlay = true;
 }
 
 function stopSpotify() {
-    if (spotifyPlay = true) {
-        $("#spotify-player").hide();
+        const spotifyEmbedWindow = document.querySelector('iframe[src*="spotify.com/embed"]').contentWindow;
+        spotifyEmbedWindow.postMessage({command: 'pause'}, '*');
+        spotifyPlay = false;
+}
+
+function playSpotify() {
         const spotifyEmbedWindow = document.querySelector('iframe[src*="spotify.com/embed"]').contentWindow;
         spotifyEmbedWindow.postMessage({command: 'toggle'}, '*');
-        spotifyPlay = false;
-    }
+        spotifyPlay = true;
 }
 
 function embedMusic() {
     const musicUrl = document.getElementById("link").value;
-    let spotifyPlay = false;
-    let youtubePlay = false;
-    
+
     if (musicUrl.length < 54 && musicUrl.includes("youtube")) {
         const videoId = musicUrl.slice(32);
         const videoUrl = "https://www.youtube.com/embed/" + videoId + "?playlist=" + videoId + "&loop=1" + "&enablejsapi=1";
+        $("#spotify-player").hide();
         $("#youtube-player").show();
         $("#youtube-player").attr("src", videoUrl);
         youtubePlay = true;
+        youtubeShow = true;
         stopSpotify();
+        spotifyShow = false;
     } else if (musicUrl.length < 54 && musicUrl.includes("spotify")) {
         const songId = musicUrl.slice(31);
         const songUrl = "https://open.spotify.com/embed/track/" + songId + "?utm_source=generator";
@@ -306,14 +333,19 @@ function embedMusic() {
         $("#spotify-player").show();
         $("#spotify-player").attr("src", songUrl);
         spotifyPlay = true;
+        spotifyShow = true;
         stopYoutube();
+        youtubeShow = false;
     } else if (musicUrl.length > 54 && musicUrl.includes("youtube")) {
         const playlistId = musicUrl.slice(38);
         const playlistUrl = "https://www.youtube.com/embed?listType=playlist&list=" + playlistId + "&loop=1" + "&enablejsapi=1";
+        $("#spotify-player").hide();
         $("#youtube-player").show();
         $("#youtube-player").attr("src", playlistUrl);
         youtubePlay = true;
+        youtubeShow = true;
         stopSpotify();
+        spotifyShow = false;
     } else if (musicUrl.length > 54 && musicUrl.includes("spotify")) {
         const playlistId = musicUrl.slice(34);
         const playlistUrl = "https://open.spotify.com/embed/playlist/" + playlistId + "?utm_source=generator";
@@ -321,7 +353,9 @@ function embedMusic() {
         $("#spotify-player").show();
         $("#spotify-player").attr("src", playlistUrl);
         spotifyPlay = true;
+        spotifyShow = true;
         stopYoutube();
+        youtubeShow = false;
     }
 }
 
@@ -343,9 +377,8 @@ function switchAudio(audioFile, audioElement, switcherElement, displaySpan, disp
     const switcher = document.getElementsByClassName(switcherElement);
     const span = document.getElementsByClassName(displaySpan);
     const icon = document.getElementById(displayIcon);
-    const pnpIcon = document.getElementById(btnIconId);
 
-    if ($(pnpIcon).hasClass("btn-inactive")) {
+    if ($(masterIcon).hasClass("btn-inactive")) {
         if (audio.paused) {
             $(".switcher-element").removeClass("switcher-active");
             $(switcher).addClass("switcher-active");

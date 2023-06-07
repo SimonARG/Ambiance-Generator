@@ -1,5 +1,3 @@
-Add favicon
-Master controls should control music
 Make side menu
 Implement volume fadder on timer (side menu)
 Implement presets (side menu)
