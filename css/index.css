@@ -1,5 +1,4 @@
 :root {
-
     --arrow-invis: rgba(192, 192, 192, 0.452);
     --arrow-hover: rgba(192, 192, 192, 0.831);
     --bg-normal: rgba(1, 1, 1, 0.567);
@@ -7,8 +6,7 @@
     --bg-hover-dark: rgba(1, 1, 1, 0.567);
     --transparent: rgba(0, 0, 0, 0);
     --btn-inactive: rgb(78, 78, 78);
-
-  }
+}
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -16,17 +14,13 @@
 */
 
 * {
-
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-
 }
 
 button {
-
     outline: none;
-
 }
 
 html, body, div, span, applet, object, iframe,
@@ -42,34 +36,26 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-
     border: 0;
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
     text-decoration: none;
-
 }
 
 /* HTML5 display-role reset for older browsers */
 
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section, image {
-
     display: block;
-
 }
 
 body {
-
     line-height: 1;
-
 }
 
 ol, ul {
-
     list-style: none;
-
 }
 
 blockquote, q {
@@ -206,7 +192,7 @@ body {
 
 .control-container {
 
-    width: 90vw;
+    width: 100%;
     height: auto;
     background-color: var(--bg-normal);
     display: none;
@@ -226,7 +212,7 @@ body {
 
 .menu-container {
 
-    width: max(30vw, 280px);
+    width: 30vw;
     height: 90vh;
     background-color: var(--bg-normal);
     display: none;
@@ -247,7 +233,7 @@ body {
 
 .music-container {
 
-    width: max(30vw, 280px);
+    width: 30vw;
     height: 90vh;
     background-color: var(--bg-normal);
     display: none;
@@ -460,6 +446,7 @@ body {
     min-width: 100%;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
 
 }
 
@@ -471,8 +458,8 @@ body {
     background: rgba(0, 0, 0, 0);
     border: 1px solid white;
     border-radius: 5px;
-    height: max(0.8vw, 8px);
-    width: max(100%, 20px);
+    height: 0.6rem;
+    width: 13rem;
 
 }
 
@@ -486,8 +473,8 @@ body {
 
     -webkit-appearance: none;
     appearance: none;
-    width: max(1.8vw, 10px);
-    height: max(1.8vw, 10px);
+    width: 1.3rem;
+    height: 1.3rem;
     border: 1px solid white;
     cursor: pointer;
     border-radius: 50%;
@@ -497,8 +484,8 @@ body {
 
 .slider::-moz-range-thumb {
 
-    width: max(1.8vw, 10px);
-    height: max(1.8vw, 10px);
+    width: 1.3rem;
+    height: 1.3rem;
     border: 1px solid white;
     cursor: pointer;
     border-radius: 50%;
@@ -672,44 +659,94 @@ body {
 
 }
 
-.menu-flex, .music-flex {
+.menu-flex {
 
     border: 1px solid white;
-    border-bottom: none;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     width: 100%;
     height: 100%;
     color: white;
+    padding: .8rem;
+    overflow: auto;
 
 }
 
-.menu-flex div {
+.logo-container, .sublogo-container {
 
     display: flex;
     justify-content: center;
+    margin-bottom: .6rem;
+
+}
+
+.logo-container {
+
+    margin-bottom: .6rem;
+
+}
+
+.sublogo-container {
+
+    margin-bottom: 3rem;
+
+}
+
+.logo {
+
+    font-family: 'Kaushan Script', cursive;
+    font-size: 4rem;
+    user-select: none;
+    transition: .4s text-shadow;
+
+}
+
+.logo:hover {
+
+    text-shadow: 0 0 7px white;
+
+}
+
+.sublogo {
+
+    font-size: 1.2rem;
+    user-select: none;
+    text-align: center;
+
+}
+
+.cliffnotes {
+
+    font-size: .85rem;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    border-bottom: 1px solid white;
-    font-size: 1rem;
-    width: 100%;
-    height: 100%;
+
+}
+
+.cliffnotes p {
+
+    margin-bottom: .6rem;
 
 }
 
 .music-flex {
 
+    border: 1px solid white;
+    width: 100%;
+    height: 100%;
+    color: white;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    color: white;
     padding: .8rem;
-    border: 1px solid white;
-    overflow: hidden;
+    overflow: auto;
+    align-items: center;
 
 }
 
-.music-flex h2, h3, span {
+.music-flex h2, h3, p {
 
     display: flex;
     justify-content: center;
@@ -732,10 +769,11 @@ body {
 
 }
 
-.music-flex span {
+.music-flex p {
 
     font-size: .9rem;
     margin-bottom: 1.4rem;
+    width: 100%;
 
 }
 
@@ -745,6 +783,7 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    width: 100%;
 
 }
 
@@ -815,14 +854,14 @@ body {
 
 }
 
-.master-flex {
+.master-flex  {
 
     display: flex;
     flex-wrap: nowrap;
     color: white;
     padding: .8rem;
     border: 1px solid white;
-    overflow: hidden;
+    overflow: auto;
     align-items: center;
 
 }
@@ -864,117 +903,4 @@ body {
     font-size: 4rem;
     margin-left: .05rem;
     
-}
-
-@media only screen and (min-width: 2400px)
-{
-    html {
-        font-size: 30px;
-    }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 1440px)
-{
-    html {
-        font-size: 16px;
-    }
-}
-
-@media only screen and (max-width: 1110px)
-{   
-    html {
-        font-size: 14px;
-    }
-}
-
-@media only screen and (max-width: 672px)
-{   
-    html {
-        font-size: 12px;
-    }
-}
-
-@media only screen and (max-width: 987px)
-{   
-    html {
-        font-size: 11.5px;
-    }
-}
-
-@media only screen and (max-width: 560px) {
-    html {
-        font-size: 10px;
-    }
-    .control-container {
-        width: 100vw;
-        height: 100vw;
-        background-color: var(--bg-normal);
-        display: none;
-        z-index: 1;
-        padding: max(3.5rem, 20px) 1rem 1rem 1rem;
-    }
-    .control-grid {
-        grid-template-areas: 
-        "control1 control2"
-        "control3 control4"
-        "control5 control6"
-        "control7 control8";
-    }
-    .control8 {
-        display: none !important;
-    }
-    .music-container, .menu-container {
-        width: 80vw;
-    }
-}
-
-@media only screen and (max-width: 485px) {
-    html {
-        font-size: 10px;
-    }
-    .control-container {
-        width: 100vw;
-        height: 100vw;
-        background-color: var(--bg-normal);
-        display: none;
-        z-index: 1;
-        padding: max(3.5rem, 20px) 1rem 1rem 1rem;
-    }
-    .control-grid {
-        display: flex;
-        flex-direction: column;
-    }
-    .control6 {
-        display: none !important;
-    }
-    .control7 {
-        display: none !important;
-    }
-    .control8 {
-        display: none !important;
-    }
-    .music-container, .menu-container {
-        width: 80vw;
-    }
-}
-
-@media only screen and (max-width: 820px) {
-    .control-container {
-        width: 90vw;
-        height: auto;
-        background-color: var(--bg-normal);
-        display: none;
-        z-index: 1;
-        padding: max(3.5rem, 20px) 1rem 1rem 1rem;
-    }
-    .control-grid {
-        grid-template-areas: 
-        "control1 control2"
-        "control3 control4"
-        "control5 control6"
-        "control7 control8";
-    }
-    .control8 {
-        display: none !important;
-    }
 }

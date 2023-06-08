@@ -1,5 +1,5 @@
 Make side menu
-Implement volume fadder on timer (side menu)
+Implement volume fader on timer (side menu)
 Implement presets (side menu)
 Work on responsiveness (LEARN MEDIA QUERIES RETARD)
 Rebrand

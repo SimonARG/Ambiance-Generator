@@ -16,6 +16,10 @@
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous"/>
@@ -144,10 +148,17 @@
 			<div class="menu-holder">
 				<div class="menu-container">
 					<div class="menu-flex">
-							<div class="menu-item">MEME</div>
-							<div class="menu-item">MEME</div>
-							<div class="menu-item">MEME</div>
-							<div class="menu-item">MEME</div>
+						<div class="logo-container">
+							<h1 class="logo">Re;Noise</h1>
+						</div>
+						<div class="sublogo-container">
+							<h2 class="sublogo">custom ambient sound generator</h2>
+						</div>
+						<div class="cliffnotes">
+							<p>Press the top arrow to see the control panel</p>
+							<p>Press the right arrow to embed music</p>
+							<p>Press the bottom arrow to see the master controls</p>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -157,7 +168,7 @@
 					<div class="music-flex">
 						<h2>PLAYLIST EMBED</h2>
 						<h3>Listen to your own music!</h3>
-						<span>Enter a full Spotify or YouTube link to create the embedded player. It can be a song, album, playlist, or whatever else. The link should start with https://www. and include either youtube.com/... or open.spotify.com/...</span>
+						<p>Enter a full Spotify or YouTube link to create the embedded player. It can be a song, album, playlist, or whatever else. The link should start with https://www. and include either youtube.com/... or open.spotify.com/...</p>
 						<form action="" method="post">
 							<label for="link">Music link:</label>
 							<input id="link" type="url" name="url" placeholder="https://www..." autocomplete="off">
