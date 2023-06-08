@@ -168,14 +168,26 @@
 					<div class="music-flex">
 						<h2>PLAYLIST EMBED</h2>
 						<h3>Listen to your own music!</h3>
-						<p>Enter a full Spotify or YouTube link to create the embedded player. It can be a song, album, playlist, or whatever else. The link should start with https://www. and include either youtube.com/... or open.spotify.com/...</p>
+						<p>Enter a full Spotify or YouTube link to create the embedded player. 
+							It can be a song, album, playlist, or whatever else. 
+							The link should start with https://www. and include either 
+							youtube.com/... or open.spotify.com/...</p>
 						<form action="" method="post">
 							<label for="link">Music link:</label>
 							<input id="link" type="url" name="url" placeholder="https://www..." autocomplete="off">
 							<input onclick="embedMusic()" type="button" value="Embed">
 						</form>
 						<iframe id="youtube-player" frameborder="0" title="Music player"></iframe>
-						<iframe id="spotify-player" style="border-radius:12px" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+						<iframe 
+							id="spotify-player" 
+							style="border-radius:12px" 
+							width="100%" 
+							height="152" 
+							frameBorder="0" 
+							allowfullscreen="" 
+							allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+							loading="lazy">
+						</iframe>
 					</div>
 				</div>
 			</div>

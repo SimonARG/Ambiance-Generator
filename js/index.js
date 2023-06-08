@@ -382,7 +382,8 @@ function toggleSwitcher(switcherClass, arrowClass) {
     }
 }
 
-function switchAudio(audioFile, audioElement, switcherElement, displaySpan, displayIcon, iconClass, btnIconId) {
+function switchAudio(audioFile, audioElement, switcherElement, 
+    displaySpan, displayIcon, iconClass, btnIconId) {
     const audio = document.getElementById(audioElement);
     const switcher = document.getElementsByClassName(switcherElement);
     const span = document.getElementsByClassName(displaySpan);
