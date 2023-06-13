@@ -1,4 +1,4 @@
-Work on responsiveness (LEARN MEDIA QUERIES RETARD)
+Finish media queries for side menus
 Make side menu
 Implement volume fader on timer (side menu)
 Implement presets (side menu)

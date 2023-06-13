@@ -79,7 +79,8 @@ body {
 
 .body-container {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100svh;
     background-image: url('../images/bg.jpg');
     background-repeat: no-repeat;
     background-position: center;
@@ -185,14 +186,14 @@ body {
 }
 
 .menu-container {
-
-    width: 30vw;
-    height: 90vh;
+    min-width: 88vw;
+    width: 88svw;
+    min-height: 90vh;
+    height: 90svh;
     background-color: var(--bg-normal);
     display: none;
     z-index: 1;
     padding: 1rem 1rem 1rem max(3.5rem, 20px);
-
 }
 
 .music-holder {
@@ -206,14 +207,14 @@ body {
 }
 
 .music-container {
-
-    width: 30vw;
-    height: 90vh;
+    min-width: 88vw;
+    width: 88svw;
+    min-height: 90vh;
+    height: 90svh;
     background-color: var(--bg-normal);
     display: none;
     z-index: 1;
     padding: 1rem max(3.5rem, 20px) 1rem 1rem;
-
 }
 
 .master-holder {
@@ -238,71 +239,10 @@ body {
 }
 
 .control-grid {
-
     width: 100%;
     height: 100%;
     border-top: 1px solid white;
     border-left: 1px solid white;
-    display: grid;
-    grid-template-areas: 
-        "control1 control2 control3"
-        "control4 control5 control6"
-        "control7 control8 control9";
-
-}
-
-.control0 {
-
-    grid-area: control1;
-
-}
-
-.control1 {
-
-    grid-area: control2;
-
-}
-
-.control2 {
-
-    grid-area: control3;
-
-}
-
-.control3 {
-
-    grid-area: control4;
-
-}
-
-.control4 {
-
-    grid-area: control5;
-
-}
-
-.control5 {
-
-    grid-area: control6;
-
-}
-
-.control6 {
-
-    grid-area: control7;
-
-}
-
-.control7 {
-
-    grid-area: control8;
-
-}
-
-.control8 {
-
-    grid-area: control9;
-
 }
 
 .control-grid > div {
@@ -312,13 +252,71 @@ body {
     border-right: 1px solid white;
     border-bottom: 1px solid white;
     padding: 1rem 1rem 1rem 1rem;
-    display: grid;
     justify-items: center;
     align-items: end;
     grid-template-areas: 
     "arrow arrow on display display"
     "play play on display display"
     "play play volume volume volume";
+
+}
+
+.control0 {
+
+    grid-area: control0;
+    display: grid;
+
+}
+
+.control1 {
+
+    grid-area: control1;
+    display: grid;
+
+}
+
+.control2 {
+
+    grid-area: control2;
+    display: grid;
+
+}
+
+.control3 {
+
+    grid-area: control3;
+    display: grid;
+
+}
+
+.control4 {
+
+    grid-area: control4;
+    display: grid;
+
+}
+
+.control5 {
+
+    grid-area: control5;
+
+}
+
+.control6 {
+
+    grid-area: control6;
+
+}
+
+.control7 {
+
+    grid-area: control7;
+
+}
+
+.control8 {
+
+    grid-area: control8;
 
 }
 
@@ -877,4 +875,77 @@ body {
     font-size: 4rem;
     margin-left: .05rem;
     
+}
+
+@media only screen and (max-width: 600px) {
+    :root {
+        font-size: 11px;
+    }
+    .control-grid {
+        display: flex;
+        flex-direction: column;
+    }
+    .control5, .control6, .control7, .control8 {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    :root {
+        font-size: 13px;
+    }
+    .control-grid {
+        display: flex;
+        flex-direction: column;
+    }
+    .control5, .control6, .control7, .control8 {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    :root {
+        font-size: 14px;
+    }
+    .control-grid {
+        display: grid;
+        grid-template-areas: 
+            "control0 control1"
+            "control2 control3"
+            "control4 control5";
+    }
+    .control5 {
+        display: grid;
+    }
+    .control6, .control7, .control8 {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1158px) {
+    :root {
+        font-size: 15px;
+    }
+    .control-grid {
+        display: grid;
+        grid-template-areas: 
+            "control0 control1 control2"
+            "control3 control4 control5"
+            "control6 control7 control8";
+    }
+    .control5, .control6, .control7, .control8 {
+        display: grid;
+    }
+    .menu-container, .music-container {
+        min-width: 88vw;
+        width: 88svw;
+        min-height: 90vh;
+        height: 90svh;
+    }
+}
+
+@media only screen and (min-width: 1303px) {
+    :root {
+        font-size: 17px;
+    }
 }
