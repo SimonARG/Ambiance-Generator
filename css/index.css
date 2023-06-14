@@ -91,8 +91,6 @@ body {
 .arrow {
     background-color: var(--arrow-invis);
     cursor: pointer;
-    width: 3.5rem;
-    height: 3.5rem;
     transition: background-color .25s, transform .2s;
     z-index: 10;
     position: fixed;
@@ -108,7 +106,6 @@ body {
 .top {
     clip-path: polygon(100% 0, 0 0, 50% 60%);
     margin: max(1vw, 10px) 0 0 0;
-    left: 47.97%;
     transform-origin: center 26%;
 }
 
@@ -123,7 +120,6 @@ body {
 .bot {
     clip-path: polygon(50% 40%, 0 100%, 100% 100%);
     margin: 0 0 max(1vw, 10px) 0;
-    left: 47.97%;
     bottom: 0;
     transform-origin: center 74%;
 }
@@ -895,6 +891,13 @@ body {
         min-height: 90vh;
         height: 90svh;
     }
+    .arrow {
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+    .top, .bot {
+        left: 44%;
+    }
 }
 
 @media only screen and (min-width: 600px) {
@@ -913,6 +916,13 @@ body {
         width: 65svw;
         min-height: 90vh;
         height: 90svh;
+    }
+    .arrow {
+        width: 3rem;
+        height: 3rem;
+    }
+    .top, .bot {
+        left: 47.97%;
     }
 }
 
@@ -939,6 +949,13 @@ body {
         min-height: 90vh;
         height: 90svh;
     }
+    .arrow {
+        width: 3rem;
+        height: 3rem;
+    }
+    .top, .bot {
+        left: 47.97%;
+    }
 }
 
 @media only screen and (min-width: 1158px) {
@@ -961,10 +978,24 @@ body {
         min-height: 90vh;
         height: 90svh;
     }
+    .arrow {
+        width: 3rem;
+        height: 3rem;
+    }
+    .top, .bot {
+        left: 47.97%;
+    }
 }
 
 @media only screen and (min-width: 1303px) {
     :root {
         font-size: 17px;
+    }
+    .arrow {
+        width: 3rem;
+        height: 3rem;
+    }
+    .top, .bot {
+        left: 47.97%;
     }
 }
