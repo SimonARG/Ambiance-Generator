@@ -1,5 +1,5 @@
 let controlShow = false;
-let menuShow = false;
+let menuShow = true;
 let musicShow = false;
 let masterShow = false;
 
