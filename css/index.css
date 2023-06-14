@@ -91,8 +91,8 @@ body {
 .arrow {
     background-color: var(--arrow-invis);
     cursor: pointer;
-    width: max(4vw, 15px);
-    height: max(4vw, 15px);
+    width: 3.5rem;
+    height: 3.5rem;
     transition: background-color .25s, transform .2s;
     z-index: 10;
     position: fixed;
