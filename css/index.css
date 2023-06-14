@@ -81,7 +81,7 @@ body {
     width: 100vw;
     min-height: 100vh;
     height: 100svh;
-    background-image: url('../images/bg.jpg');
+    background-image: url('../images/bg.gif');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -186,10 +186,6 @@ body {
 }
 
 .menu-container {
-    min-width: 88vw;
-    width: 88svw;
-    min-height: 90vh;
-    height: 90svh;
     background-color: var(--bg-normal);
     display: none;
     z-index: 1;
@@ -207,10 +203,6 @@ body {
 }
 
 .music-container {
-    min-width: 88vw;
-    width: 88svw;
-    min-height: 90vh;
-    height: 90svh;
     background-color: var(--bg-normal);
     display: none;
     z-index: 1;
@@ -546,7 +538,7 @@ body {
     color: white;
     font-weight: bold;
     text-align: center;
-    margin: 0 .78rem;
+    margin: 0 0 0 .1rem;
     user-select: none;
 
 }
@@ -853,7 +845,7 @@ body {
 
     border: 1px solid white;
     border-radius: 50%;
-    background-color: var(--bg-normal);
+    background-color: var(--transparent);
     cursor: pointer;
     min-width: 6rem;
     min-height: 6rem;
@@ -877,6 +869,15 @@ body {
     
 }
 
+.master-volume-container {
+
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+
 @media only screen and (max-width: 600px) {
     :root {
         font-size: 11px;
@@ -887,6 +888,12 @@ body {
     }
     .control5, .control6, .control7, .control8 {
         display: none;
+    }
+    .menu-container, .music-container {
+        min-width: 88vw;
+        width: 88svw;
+        min-height: 90vh;
+        height: 90svh;
     }
 }
 
@@ -900,6 +907,12 @@ body {
     }
     .control5, .control6, .control7, .control8 {
         display: none;
+    }
+    .menu-container, .music-container {
+        min-width: 65vw;
+        width: 65svw;
+        min-height: 90vh;
+        height: 90svh;
     }
 }
 
@@ -920,6 +933,12 @@ body {
     .control6, .control7, .control8 {
         display: none;
     }
+    .menu-container, .music-container {
+        min-width: 50vw;
+        width: 50svw;
+        min-height: 90vh;
+        height: 90svh;
+    }
 }
 
 @media only screen and (min-width: 1158px) {
@@ -937,8 +956,8 @@ body {
         display: grid;
     }
     .menu-container, .music-container {
-        min-width: 88vw;
-        width: 88svw;
+        min-width: 30vw;
+        width: 30svw;
         min-height: 90vh;
         height: 90svh;
     }

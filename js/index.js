@@ -590,3 +590,11 @@ function switchAudio(audioFile, audioElement, switcherElement,
     }   
 }
 
+function masterVolume() {
+    const newVolume = document.getElementById("master-volume").value / 100;
+    document.querySelectorAll("audio").forEach(element => element.volume = newVolume)
+}
+  
+$(document).ready(function() {
+    document.getElementById("master-volume").addEventListener("input", masterVolume)
+});
