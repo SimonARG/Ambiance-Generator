@@ -485,8 +485,6 @@ body {
 
     background-color: var(--arrow-invis);
     cursor: pointer;
-    width: max(2.3rem, 9px);
-    height: max(2.3rem, 9px);
     transition: background-color .25s, transform .2s;
     clip-path: polygon(100% 0, 0 0, 50% 60%);
     grid-area: arrow;
@@ -876,27 +874,31 @@ body {
 
 @media only screen and (max-width: 600px) {
     :root {
-        font-size: 11px;
+        font-size: 12px;
     }
     .control-grid {
         display: flex;
         flex-direction: column;
     }
-    .control5, .control6, .control7, .control8 {
+    .control4, .control5, .control6, .control7, .control8 {
         display: none;
     }
     .menu-container, .music-container {
         min-width: 88vw;
         width: 88svw;
-        min-height: 90vh;
-        height: 90svh;
+        min-height: 80vh;
+        height: 80svh;
     }
     .arrow {
-        width: 4.5rem;
-        height: 4.5rem;
+        width: 4rem;
+        height: 4rem;
     }
     .top, .bot {
         left: 44%;
+    }
+    .switcher-arrow {
+        width: 3.2rem;
+        height: 3.2rem;
     }
 }
 
@@ -923,6 +925,10 @@ body {
     }
     .top, .bot {
         left: 47.97%;
+    }
+    .switcher-arrow {
+        width: 3.2rem;
+        height: 3.2rem;
     }
 }
 
@@ -956,6 +962,10 @@ body {
     .top, .bot {
         left: 47.97%;
     }
+    .switcher-arrow {
+        width: 2.3rem;
+        height: 2.3rem;
+    }
 }
 
 @media only screen and (min-width: 1158px) {
@@ -985,6 +995,10 @@ body {
     .top, .bot {
         left: 47.97%;
     }
+    .switcher-arrow {
+        width: 2.3rem;
+        height: 2.3rem;
+    }
 }
 
 @media only screen and (min-width: 1303px) {
@@ -997,5 +1011,9 @@ body {
     }
     .top, .bot {
         left: 47.97%;
+    }
+    .switcher-arrow {
+        width: 2.3rem;
+        height: 2.3rem;
     }
 }
