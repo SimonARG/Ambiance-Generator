@@ -1,3 +1,5 @@
+Make language switcher and translate
+
 The master volume should control the volume of each audio element as a subset of itself instead of overwriting its own values.
 
 Implement volume fader on timer (side menu).
