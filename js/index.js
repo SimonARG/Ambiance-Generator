@@ -1,13 +1,20 @@
+// Variables for UI panel status and default value
 let controlShow = false;
 let menuShow = true;
 let musicShow = false;
 let masterShow = false;
 
+// Variables for YouTube and Spotify embed visibility and playback and default value
+let spotifyShow = false;
 let spotifyPlay = false;
+let youtubeShow = false;
 let youtubePlay = false;
 
-let youtubeShow = false;
-let spotifyShow = false;
+// Constant for master icon DOM element to allow its manipulation by different functions
+const masterIcon = document.getElementById("master-icon");
+
+// Constant for global playback status
+const initialPlay = false;
 
 const defaultSounds = [
     "Light rain on ceiling",
@@ -87,6 +94,7 @@ const icons = {
     "Strong waterfall":"fa-solid fa-droplet"
 };
 
+// Loop that creates the 9 audio players by appending a template literal amount of HTML to the DOM
 for (let i = 0; i < 9; i++) {
     let controlDiv = document.createElement('div');
     controlDiv.setAttribute("class", "control" + i);
@@ -173,11 +181,11 @@ for (let i = 0; i < 9; i++) {
     document.getElementById("control-grid").appendChild(controlDiv);
 }
 
-const masterIcon = document.getElementById("master-icon");
+$("audio").prop("volume", 0.2); // Set initial audio volume to 20% in order not to kill people's ears
 
-$("audio").prop("volume", 0.2);
+$("audio").attr("src", ""); // Set initial audio file to null
 
-$("audio").attr("src", "");
+// Control functions for the UI panels their arrows
 
 $(".top").click(function() {
 
@@ -336,6 +344,7 @@ $(".bot").click(function() {
 
 });
 
+// Function to activate or deactivate audio players
 function onOff(audioId, btnId, displaySpanClass, onOffClass) {
     const audio = document.getElementById(audioId);
     const btn = document.getElementById(btnId);
@@ -373,8 +382,11 @@ function onOff(audioId, btnId, displaySpanClass, onOffClass) {
         $(icon).removeClass("btn-inactive");
         $(btn).removeClass("btn-inactive");
     }
+
+    $(masterIcon).removeClass("btn-inactive");
 }
 
+// Function to pause or play individual audios
 function pausePlay(audioId, iconId) {
     const audio = document.getElementById(audioId);
     const icon = document.getElementById(iconId);
@@ -408,6 +420,7 @@ function pausePlay(audioId, iconId) {
     }
 }
 
+// Function for master controls
 function masterPausePlay() {
     const pnpIconsNode = document.getElementsByClassName("pnp-icon");
     const audioNode = document.querySelectorAll("audio");
@@ -456,6 +469,7 @@ function masterPausePlay() {
     }
 }
 
+// Function to control individual audio volumes with a custom slider
 function changeVolume(audioId, slider) {
     const audio = document.getElementById(audioId);
     const vol = (slider / 100);
@@ -463,30 +477,35 @@ function changeVolume(audioId, slider) {
     $(audio).prop("volume", vol);
 }
 
+// Function to stop the playback of a YouTube embed
 function stopYoutube() {
     const youtubeEmbedWindow = document.querySelector('iframe[src*="youtube.com/"]').contentWindow;
     youtubeEmbedWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
     youtubePlay = false;
 }
 
+// Function to start or resume the playback of a YouTube embed
 function playYoutube() {
     const youtubeEmbedWindow = document.querySelector('iframe[src*="youtube.com/"]').contentWindow;
     youtubeEmbedWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
     youtubePlay = true;
 }
 
+// Function to stop the playback of a Spotify embed
 function stopSpotify() {
     const spotifyEmbedWindow = document.querySelector('iframe[src*="spotify.com/embed"]').contentWindow;
     spotifyEmbedWindow.postMessage({command: 'pause'}, '*');
     spotifyPlay = false;
 }
 
+// Function to start resume the playback of a Spotify embed
 function playSpotify() {
     const spotifyEmbedWindow = document.querySelector('iframe[src*="spotify.com/embed"]').contentWindow;
     spotifyEmbedWindow.postMessage({command: 'toggle'}, '*');
     spotifyPlay = true;
 }
 
+// Function to embed YouTube or Spotify media on user link input
 function embedMusic() {
     const musicUrl = document.getElementById("link").value;
 
@@ -533,6 +552,7 @@ function embedMusic() {
     }
 }
 
+// Function to show or hide the audio file switcher
 function toggleSwitcher(switcherClass, arrowClass) {
     let switcher = document.getElementsByClassName(switcherClass);
     let arrow = document.getElementsByClassName(arrowClass);
@@ -546,6 +566,7 @@ function toggleSwitcher(switcherClass, arrowClass) {
     }
 }
 
+// Function to switch audio file depending on user input
 function switchAudio(audioFile, audioElement, switcherElement, 
     displaySpan, displayIcon, iconClass) {
     const audio = document.getElementById(audioElement);
@@ -590,11 +611,13 @@ function switchAudio(audioFile, audioElement, switcherElement,
     }   
 }
 
+// Function to control master volume through a custom volume slider
 function masterVolume() {
     const newVolume = document.getElementById("master-volume").value / 100;
     document.querySelectorAll("audio").forEach(element => element.volume = newVolume)
 }
-  
+
+// Execute master volume function on input of the master volume slider element
 $(document).ready(function() {
     document.getElementById("master-volume").addEventListener("input", masterVolume)
 });
